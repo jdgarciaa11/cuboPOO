@@ -29,23 +29,23 @@ public class Cubo {
 
         //GET
     public String getMaterial() {
-        return material;
+        return this.material;
     }
 
     public boolean isAsa() {
-        return asa;
-    } //preguntar
+        return this.asa;
+    }
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     public int getCapacidad(){
-        return capacidad;
+        return this.capacidad;
     }
 
     public int getCapacidadMax() {
-        return capacidadMax;
+        return this.capacidadMax;
     }
 
         //SET
@@ -62,11 +62,15 @@ public class Cubo {
     }
 
     public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
+        if(capacidad>=0 && capacidad<=capacidadMax) {
+            this.capacidad = capacidad;
+        }
     }
 
     public void setCapacidadMax(int capacidadMax) {
-        this.capacidadMax = capacidadMax;
+        if(capacidadMax>=0 && capacidadMax>=capacidad){
+            this.capacidadMax = capacidadMax;
+        }
     }
 
         //Metodos
@@ -74,12 +78,12 @@ public class Cubo {
         if (getCapacidad() < getCapacidadMax() && litros <= getCapacidadMax()){
             setCapacidad(capacidad+litros);
         } else if (getCapacidad() > getCapacidadMax()){
-            System.out.println("Los litros introducidos superan a la capacidad maxima.");
-            System.out.println(litros+" litros introducidos. "+(getCapacidad()-getCapacidadMax())+" litros sobranten.");
-            System.out.println("La capacidad actual sera la maxima del cubo");
+//            System.out.println("Los litros introducidos superan a la capacidad maxima.");
+//            System.out.println(litros+" litros introducidos. "+(getCapacidad()-getCapacidadMax())+" litros sobranten.");
+//            System.out.println("La capacidad actual sera la maxima del cubo");
             setCapacidad(getCapacidadMax());
         } else if (getCapacidad() == getCapacidadMax()){
-            System.out.println("El cubo esta lleno");
+//            System.out.println("El cubo esta lleno");
         }
     }
 
@@ -87,13 +91,13 @@ public class Cubo {
         if (getCapacidad() > 0 && litros>=0){
             setCapacidad(capacidad-litros);
         } else if (getCapacidad() < 0){
-            System.out.println("Los litros introducidos no se pueden vaciar ya que no hay esos litros.");
-            System.out.println(litros+" litros introducidos. "+(litros-getCapacidad())+" litros sobranten.");
-            System.out.println("La capacidad actual sera la minima del cubo");
+//            System.out.println("Los litros introducidos no se pueden vaciar ya que no hay esos litros.");
+//            System.out.println(litros+" litros introducidos. "+(litros-getCapacidad())+" litros sobranten.");
+//            System.out.println("La capacidad actual sera la minima del cubo");
             setCapacidad(getCapacidadMax());
 
         } else if (getCapacidad() == getCapacidadMax()){
-            System.out.println("El cubo esta vacio");
+//            System.out.println("El cubo esta vacio");
         }
     }
 
